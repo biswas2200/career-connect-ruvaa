@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: ruvaa-backend
+
+# Firebase Configuration
+firebase:
+  enabled: true
+  service-account-key: classpath:credentials/serviceAccount.json
+  database-url: https://ruvaa-cbcaa-default-rtdb.asia-southeast1.firebasedatabase.app/
+  project-id: ruvaa-cbcaa
+
+jwt:
+  secret: ruvaaSecretKeyForJWTTokenGenerationAndValidation123456789
+  expiration: 86400000 # 24 hours
+
+logging:
+  level:
+    com.ruvaa: DEBUG
+    org.springframework.security: DEBUG
+    com.google.firebase: DEBUG
+
+# Python AI Service Configuration
+python:
+  ai:
+    service:
+      url: http://localhost:5000
