@@ -1,6 +1,6 @@
 server:
   port: ${PORT:8080}
-  address: 0.0.0.0  # CRITICAL: Bind to all interfaces
+  address: 0.0.0.0
   servlet:
     context-path: /api
   compression:
@@ -11,18 +11,12 @@ spring:
   application:
     name: careerconnect-backend
 
-  profiles:
-    active: prod
-
-  # DISABLE SSL requirement (Render handles SSL at load balancer)
   security:
     require-ssl: false
 
-  # DISABLE Redis cache (use simple cache instead)
   cache:
     type: simple
 
-  # Exclude Redis autoconfiguration
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
 
@@ -47,8 +41,8 @@ gemini:
 # Security Configuration
 jwt:
   secret: ${JWT_SECRET}
-  expiration: 86400000 # 24 hours
-  refresh-expiration: 604800000 # 7 days
+  expiration: 86400000
+  refresh-expiration: 604800000
 
 # Rate Limiting
 rate-limiting:
